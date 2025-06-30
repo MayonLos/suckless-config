@@ -93,9 +93,10 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+  { MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun") }, 
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-  { MODKEY|ShiftMask,             XK_t,      spawn,           SHCMD("~/.dwm/toggle_tray.sh") },
+  { MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("~/.dwm/toggle_tray.sh") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
@@ -151,8 +152,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { 0,                            XK_Print,  spawn,          SHCMD("~/.dwm/screenshot.sh") },
-  { MODKEY|ShiftMask, XK_p, spawn, SHCMD("~/.dwm/powermenu.sh") },
+  { 0,                            XK_Print,  spawn,          SHCMD("screenshot.sh") },
+  { MODKEY|ShiftMask, XK_p, spawn, SHCMD("rofi -show powermenu -modi powermenu:rofi-power-menu --no-symbols") },
   { MODKEY,                       XK_F2,     spawn,          SHCMD("qutebrowser") },
 };
 
